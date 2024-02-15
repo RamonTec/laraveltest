@@ -21,7 +21,7 @@ const MarvelView = () => {
     const fetchMarvelComics = async () => {
       try {
           // Fetch movies
-          const moviesResponse = await fetch(`http://localhost:8000/api/comics?page=${page}&pagination_size=${paginationSize}&comicType=${formatComic}`);
+          const moviesResponse = await fetch(`https://localhost:8000/api/comics?page=${page}&pagination_size=${paginationSize}&comicType=${formatComic}`);
           const moviesData = await moviesResponse.json();
           console.log(moviesData.data.results)
           setMovies(moviesData.data.results);
