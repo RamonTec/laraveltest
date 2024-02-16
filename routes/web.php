@@ -1,19 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
 use App\Http\Controllers\PayPalController;
+use App\Http\Controllers\WeatherController;
 
 Route::post('/create-payment', [PayPalController::class, 'createTransaction'])->name('create-payment');
 Route::post('/paypal/cancel', [PayPalController::class, 'handlePaymentCancel'])->name('paypal_cancel');
@@ -46,3 +35,6 @@ Route::get('/paypal/cancel', function () {
 Route::get('/weather', function () {
     return view('welcome');
 });
+
+Route::get('/weather/{city}', [WeatherController::class, 'getWeather']);
+Route::get('/clima-paises/{paises}', [WeatherController::class, 'getWeatherForCountries']);

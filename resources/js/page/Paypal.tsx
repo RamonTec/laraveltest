@@ -5,14 +5,12 @@ import Card from 'react-bootstrap/Card';
 import axios from 'axios';
 
 const PaypalView = () => {
-    const [payPalLink, setPayPalLink] = useState('');
 
     const handlePayment = async (amount: number) => {
         try {
             const response = await axios.post('/create-payment', {
                 price: amount,
             });
-            setPayPalLink(response.data.return_url);
             // Redirige al usuario a la URL de PayPal
             console.log(response.data);
             window.location.href = response.data.return_url;
@@ -35,9 +33,9 @@ const PaypalView = () => {
                     <Card.Text>
                         Price: 50$
                     </Card.Text>
-                    <button onClick={() => {
+                    <Button onClick={() => {
                         handlePayment(50);
-                    }}>Realizar Pago</button>
+                    }}>Realizar Pago</Button>
                 </Card.Body>
                 </Card>
             </Col>
@@ -52,9 +50,9 @@ const PaypalView = () => {
                     <Card.Text>
                         Price: 530$
                     </Card.Text>
-                    <button onClick={() => {
+                    <Button onClick={() => {
                         handlePayment(530);
-                    }}>Realizar Pago</button>
+                    }}>Realizar Pago</Button>
                 </Card.Body>
                 </Card>
             </Col>
@@ -69,9 +67,9 @@ const PaypalView = () => {
                     <Card.Text>
                         Price: 50$
                     </Card.Text>
-                    <button onClick={() => {
+                    <Button onClick={() => {
                         handlePayment(50);
-                    }}>Realizar Pago</button>
+                    }}>Realizar Pago</Button>
                 </Card.Body>
                 </Card>
             </Col>
@@ -86,9 +84,9 @@ const PaypalView = () => {
                     <Card.Text>
                         Price: 50$
                     </Card.Text>
-                    <button onClick={() => {
+                    <Button onClick={() => {
                         handlePayment(50);
-                    }}>Realizar Pago</button>
+                    }}>Realizar Pago</Button>
                 </Card.Body>
                 </Card>
             </Col>
@@ -103,9 +101,9 @@ const PaypalView = () => {
                     <Card.Text>
                         Price: 500$
                     </Card.Text>
-                    <button onClick={() => {
+                    <Button onClick={() => {
                         handlePayment(500);
-                    }}>Realizar Pago</button>
+                    }}>Realizar Pago</Button>
                 </Card.Body>
                 </Card>
             </Col>
@@ -120,9 +118,9 @@ const PaypalView = () => {
                     <Card.Text>
                         Price: 50$
                     </Card.Text>
-                    <button onClick={() => {
+                    <Button onClick={() => {
                         handlePayment(10);
-                    }}>Realizar Pago</button>
+                    }}>Realizar Pago</Button>
                 </Card.Body>
                 </Card>
             </Col>

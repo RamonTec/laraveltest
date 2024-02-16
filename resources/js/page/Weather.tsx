@@ -1,48 +1,71 @@
-import React from 'react';
-import { Row, Col, Container } from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Container } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
+import Form from 'react-bootstrap/Form';
+import Spinner from 'react-bootstrap/Spinner';
 
 const WeatherView = () => {
+
+    const [search, setSearch] = useState("");
+    const [weather, setWeather] = useState({});
+    const [loading, setLoading] = useState(false);
+
+    const searchWeather = () => {
+        setLoading(true);
+    fetch(`/weather/${search}`)
+        .then((res) => res.json())
+        .then((result) => {
+            setLoading(false);
+        setWeather(result);
+        })
+        .catch((error) => {
+            setLoading(false);
+        console.error('Error fetching weather data:', error);
+        });
+    };
+
+    const fetchWeatherForCountries = () => {
+        fetch('/clima-paises')
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          // Procesa la información según tus necesidades
+        })
+        .catch((error) => console.error('Error fetching weather data:', error));
+    }
+
     return (
         <Container>
-        <Row className="justify-content-evenly gap-2">
-          <Col xs={12} sm={6} md={3}>
-            <Card >
-              <Card.Body>
-                <Card.Title>Marvel</Card.Title>
-                <Card.Text>
-                  Some quick example text to build on the card title and make up the bulk of the card's content.
-                </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
-              </Card.Body>
-            </Card>
-          </Col>
+            <div className="App">
+            <header className="App-header">
 
-          <Col xs={12} sm={6} md={3}>
-            <Card>
-              <Card.Body>
-                <Card.Title>Paypal</Card.Title>
-                <Card.Text>
-                  Some quick example text to build on the card title and make up the bulk of the card's content.
-                </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
-              </Card.Body>
-            </Card>
-          </Col>
+                <h1>Weather App</h1>
+                <div>
+                <Form.Control
+                    type="text"
+                    placeholder="Enter city/town..."
+                    onChange={(e) => setSearch(e.target.value)}
+                />
+                <Button onClick={searchWeather}>Search</Button>
+                </div>
 
-          <Col xs={12} sm={6} md={3}>
-            <Card>
-              <Card.Body>
-                <Card.Title>Clima</Card.Title>
-                <Card.Text>
-                  Some quick example text to build on the card title and make up the bulk of the card's content.
-                </Card.Text>
-                <Button variant="primary">Go somewhere</Button>
-              </Card.Body>
-            </Card>
-          </Col>
-        </Row>
+                {/* If weather is not undefined display results from API */}
+                {loading && <p className='text-white'>Cargando clima...</p>}
+                {!loading && weather?.main !== undefined && (
+                <div>
+                    {/* Location */}
+                    <p>Location: {weather?.name}</p>
+
+                    {/* Temperature Celsius */}
+                    <p>Temperature: {weather?.main.temp}°C</p>
+
+                    {/* Condition (Sunny) */}
+                    <p>Condition: {weather?.weather[0].main}</p>
+                    <p>Description: {weather?.weather[0].description}</p>
+                </div>
+                )}
+            </header>
+            </div>
         </Container>
     );
 }

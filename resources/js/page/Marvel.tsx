@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Card, CardGroup, Col, Container, Form, Row } from 'react-bootstrap';
-import imgNotFound from '../../../public/download.png';
+import { Col, Container, Form } from 'react-bootstrap';
 import Button from 'react-bootstrap/Button';
 import Modal from 'react-bootstrap/Modal';
 import Pagination from 'react-bootstrap/Pagination';
@@ -112,9 +111,9 @@ const MarvelView = () => {
 
             <h2 className='text-white'>Lista de Cómics</h2>
             { loading ? (
-              <div className='d-flex justify-content-center align-items-center'>
-                <h2 className='d-flex justify-content-center align-items-center mt-5 text-white'>Cargando comics</h2>
-                <Spinner variant="danger" className='d-flex justify-content-center align-items-center mt-5' animation="border" />
+              <div className='d-flex flex-column justify-content-center align-items-center text-white mt-5'>
+                <h2 className=' text-white'>Cargando comics</h2>
+                <Spinner variant="danger" className='justify-content-center align-items-center mt-5' animation="border" />
               </div>
             ) : (
               <div
