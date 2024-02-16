@@ -10,12 +10,14 @@
 ## Sobre el proyecto
 
 Prueba tecnica de laravel + react. El porjecto realizado con Laravel, compose, React y react bootstrap con typescript.
--- Marvel: Consulta de comics de marvel, cuenta con paginado, filtro para buscar por tipo de comics.
--- Paypal: Integracion de api de paypal para realizar pagos, cancelan y aprobacion de pagos con paypal.
--- Open Weather api: consulta de clima por lugares. Aca agregue dos opciones, un componente para buscar por localidad un sitio y la api rest devolvera dicha busqueda. 
+- Marvel: Consulta de comics de marvel, cuenta con paginado, filtro para buscar por tipo de comics.
+- Paypal: Integracion de api de paypal para realizar pagos, cancelan y aprobacion de pagos con paypal.
+- Open Weather api: consulta de clima por lugares. Aca agregue dos opciones, un componente para buscar por localidad un sitio y la api rest devolvera dicha busqueda. 
 ---- La segunda opcion es consultando la api rest donde pasaras en la url varios paises y el endpoint devolvera esos paises con sus climas.
+  
 # Ejemplo de la api: http://127.0.0.1:8000/clima-paises/Venezuela,italia,colombia,grecia
 y debe de devolver esto:
+
 {"Venezuela":{"city":"Venezuela","current_weather":"scattered clouds","temperature":307.07,"humidity":36},"italia":{"city":"italia","current_weather":"overcast clouds","temperature":284.53,"humidity":58},"colombia":{"city":"colombia","current_weather":"few clouds","temperature":302.89,"humidity":51},"grecia":{"city":"grecia","current_weather":"broken clouds","temperature":272.98,"humidity":66}}
 
 ## About Laravel
