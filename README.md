@@ -8,7 +8,7 @@
 </p>
 
 ## Observaciones para correr el proyecto:
-- Clonar el repositorio dentro de la carpeta htdocs de xampp
+- Clonar el repositorio
 - Hacer npm install y luego npm run dev
 - Ejecutar composer install
 - Ejecutar php artisan serve
