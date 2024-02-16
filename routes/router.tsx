@@ -17,6 +17,8 @@ const HomeView = Loader(lazy(() => import('../resources/js/page/PageHome')));
 const MarvelView = Loader(lazy(() => import('../resources/js/page/Marvel')));
 const PaypalView = Loader(lazy(() => import('../resources/js/page/Paypal')));
 const WeatherView = Loader(lazy(() => import('../resources/js/page/Weather')));
+const PaypalSuccessView = Loader(lazy(() => import('../resources/js/page/PaypalSuccess')));
+const PaypalCancelView = Loader(lazy(() => import('../resources/js/page/PaypalCancel')));
 
 const routes = createBrowserRouter([
   {
@@ -26,19 +28,27 @@ const routes = createBrowserRouter([
         {
             path: '/',
             element: <HomeView />,
-          },
-          {
+        },
+        {
             path: 'marvel',
             element: <MarvelView />,
-          },
-          {
+        },
+        {
             path: 'paypal',
             element: <PaypalView />,
-          },
-          {
+        },
+        {
             path: 'weather',
             element: <WeatherView />,
-          },
+        },
+        {
+            path: 'paypal/success',
+            element: <PaypalSuccessView />,
+        },
+        {
+            path: 'paypal/cancel',
+            element: <PaypalCancelView />,
+        },
     ]
   }
 ]);

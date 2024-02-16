@@ -30,5 +30,10 @@ return [
         'secret' => env('AWS_SECRET_ACCESS_KEY'),
         'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
     ],
+    'paypal' => [
+        'client_id' => env('VITE_CLIEND_ID_PAYPAL'),
+        'client_secret' => env('VITE_SECRET_KEY_PAYPAL'),
+        'mode' => env('PAYPAL_MODE', 'sandbox'),
+    ],
 
 ];
