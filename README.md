@@ -7,6 +7,14 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
+## Observaciones para correr el proyecto:
+- Clonar el repositorio dentro de la carpeta htdocs de xampp
+- Hacer npm install y luego npm run dev
+- Ejecutar composer install
+- Ejecutar php artisan serve
+
+# Para efectos de prueba, el archivo .env sera subido en el projecto.
+
 ## Sobre el proyecto
 
 Prueba tecnica de laravel + react. El porjecto realizado con Laravel, compose, React y react bootstrap con typescript.
